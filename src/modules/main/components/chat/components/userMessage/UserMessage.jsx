@@ -7,7 +7,7 @@ import {
     MessageContainer,
     UserMessageWrapper,
 } from './styledComponents';
-import CustomImage from '../../../../customComponents/customImage/CustomImage';
+import CustomImage from '../../../../../customComponents/customImage/CustomImage';
 
 const UserMessage = ({
     userId,

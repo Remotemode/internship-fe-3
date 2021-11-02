@@ -3,7 +3,7 @@ import {
     ChatContainer,
     MessagesWrapper,
 } from './styledComponents';
-import UserMessage from './components/UserMessage';
+import UserMessage from './components/userMessage/UserMessage';
 import CustomTextField from '../../../customComponents/customTextField/CustomTextField';
 import chatBackgroundImage from '../../../../assets/images/bgchat.png';
 
