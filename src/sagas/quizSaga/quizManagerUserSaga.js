@@ -82,6 +82,6 @@ export function* startQuiz({ payload: questionsList }) {
     for(let question of questions) {
         yield put(actions.setCurrentQuestionStore(question));
 
-        yield delay(500);
+        yield delay(10000);
     }
 }
