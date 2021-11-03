@@ -1,4 +1,4 @@
-import { all, call, putResolve, select, takeEvery } from 'redux-saga/effects';
+import { all, call, put, select, takeEvery } from 'redux-saga/effects';
 import actionTypes from '../../constants/actionTypes';
 import * as selectors from './selectors';
 import * as actions from './actions';
@@ -27,7 +27,7 @@ export function* getItemFromLocalStorageToStore({ payload }) {
 
     const parsedItemFromLocalStorage = yield call([JSON, 'parse'], itemFromLocalStorage);
 
-    yield putResolve(actions.setCorrectAnswerDocIdStore(parsedItemFromLocalStorage));
+    yield put(actions.setCorrectAnswerDocIdStore(parsedItemFromLocalStorage));
 }
 
 export function* getUserDataFromLocalStorage() {
@@ -45,7 +45,7 @@ export function* getUserDataFromLocalStorage() {
 
     const parsedUserLocalStorageData = yield call([JSON, 'parse'], userLocalStorageData);
 
-    yield putResolve(actions.setUserDataFromLocalstorageStore({
+    yield put(actions.setUserDataFromLocalstorageStore({
         userId: parsedUserLocalStorageData.uid,
         userDocId: parsedUserLocalStorageData.docId,
     }));
@@ -66,7 +66,7 @@ export function* getQuizDataFromLocalStorage() {
 
     const parsedQuizLocalStorageData = yield call([JSON, 'parse'], quizLocalStorageData);
 
-    yield putResolve(actions.setQuizDataFromLocalstorageStore({
+    yield put(actions.setQuizDataFromLocalstorageStore({
         currentUserReadiness: [parsedQuizLocalStorageData.currentUserReadiness],
         isUserReadyToStartQuiz: parsedQuizLocalStorageData.isUserReadyToStartQuiz,
     }));

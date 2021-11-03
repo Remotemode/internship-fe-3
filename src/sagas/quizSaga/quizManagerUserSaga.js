@@ -1,4 +1,4 @@
-import { all, call, delay, put, select, putResolve, takeEvery } from 'redux-saga/effects';
+import { all, call, delay, put, select, takeEvery } from 'redux-saga/effects';
 import actionTypes from '../../constants/actionTypes';
 import * as actions from './actions';
 import * as selectors from './selectors';
@@ -25,9 +25,9 @@ export function* setIsShowResults({ payload }) {
         type: firebaseCollectionTypes.USERS_RESULTS,
         docId: correctAnswersCountDocId,
     }));
-    yield putResolve(actions.clearUserResultsStore());
-    yield putResolve(actions.setCorrectAnswerDocIdStore(''));
-    yield putResolve(actions.clearCorrectAnswerCountStore());
+    yield put(actions.clearUserResultsStore());
+    yield put(actions.setCorrectAnswerDocIdStore(''));
+    yield put(actions.clearCorrectAnswerCountStore());
     yield put(actions.clearAnswersListStore());
     yield put(actions.setIsShowResultsStore(payload));
 }
@@ -141,7 +141,7 @@ export function* startQuiz({ payload: questionsList }) {
         return;
     }
 
-    yield putResolve(actions.setQuestionsListStore(questionsList));
+    yield put(actions.setQuestionsListStore(questionsList));
 
     const questions = yield select(selectors.getQuestionsList);
 
