@@ -1,6 +1,5 @@
 import actionTypes from '../../constants/actionTypes';
 
-export const setIsShowResults = payload => ({ type: actionTypes.SET_IS_SHOW_RESULTS, payload });
 export const clearQuestionsStore = payload => ({ type: actionTypes.CLEAR_QUESTIONS_STORE, payload });
 export const clearUserResultsStore = payload => ({ type: actionTypes.CLEAR_USER_RESULTS_STORE, payload });
 export const clearAnswersListStore = payload => ({ type: actionTypes.CLEAR_ANSWERS_LIST_STORE, payload });
