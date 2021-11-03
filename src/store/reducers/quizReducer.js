@@ -2,8 +2,10 @@ import actionTypes from '../../constants/actionTypes';
 
 const initialState = {
     answersList: [],
+    isShowResults: false,
     questionsList: [],
     currentQuestion: [],
+    usersResultsList: [],
     correctAnswersCount: 0,
     currentUserReadiness: [],
     isUserReadyToStartQuiz: false,
@@ -22,15 +24,30 @@ export default function quizReducer(state = initialState, { type, payload }) {
                 ...state,
                 answersList: [],
             };
+        case actionTypes.CLEAR_USER_RESULTS_STORE:
+            return {
+                ...state,
+                usersResultsList: [],
+            };
         case actionTypes.SET_QUESTIONS_LIST_STORE:
             return {
                 ...state,
                 questionsList: [ ...payload ],
             };
+        case actionTypes.SET_IS_SHOW_RESULTS_STORE:
+            return {
+                ...state,
+                isShowResults: payload,
+            };
         case actionTypes.SET_CURRENT_QUESTION_STORE:
             return {
                 ...state,
                 currentQuestion: [ payload ],
+            };
+        case actionTypes.SET_USER_RESULTS_RESPONSE_STORE:
+            return {
+                ...state,
+                usersResultsList: [...state.usersResultsList, ...payload],
             };
         case actionTypes.SET_CORRECT_ANSWER_DOC_ID_STORE:
             return {

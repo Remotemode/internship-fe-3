@@ -2,8 +2,10 @@ import { createSelector } from 'reselect';
 
 export const getUserId = state => state.userState.userId;
 export const getMessages = state => state.chatState.messages;
+export const getIsShowResults = state => state.quizState.isShowResults;
 export const getQuestionsList = state => state.quizState.questionsList;
 export const getCurrentQuestion = state => state.quizState.currentQuestion;
+export const getUsersResultsList = state => state.quizState.usersResultsList;
 export const getAnswerResultList = state => state.quizState.answersList;
 export const getIsUserReadyToStartQuiz = state => state.quizState.isUserReadyToStartQuiz;
 

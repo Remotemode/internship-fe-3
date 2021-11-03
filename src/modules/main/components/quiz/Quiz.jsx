@@ -2,8 +2,10 @@ import React from 'react';
 import { QuizWrapper } from './styledComponents';
 import Game from './components/game';
 import ReadyForGame from './components/readyForGame/ReadyForGame';
+import Results from './components/results';
 
 const Quiz = ({
+    isShowResults,
     isQuizInProcess,
     setIsReadyForGame,
     isUserReadyToStartQuiz,
@@ -11,7 +13,10 @@ const Quiz = ({
     return (
         <QuizWrapper>
             {isQuizInProcess ?
-                <Game/>
+                !isShowResults ?
+                    <Game/>
+                    :
+                    <Results/>
                 :
                 <ReadyForGame
                     callback={setIsReadyForGame}
